@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webh5:Web">
+    <output-path>$PROJECT_DIR$/out/artifacts/webh5_Web</output-path>
+    <root id="archive" name="webh5_Web.war">
+      <element id="artifact" artifact-name="webh5:Web exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="webh5:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/webh5_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="webh5/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="webh5" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
