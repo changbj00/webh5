@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>页面1</title>
-    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/webh5/js/jquery-3.1.1.min.js"></script>
 	<style>
         #username-info{
             display: none;
@@ -21,9 +21,9 @@
 <h1>模拟商家h5跳转页面</h1>
 <br>
 <form id="myForm">
-	<label for="borrowid">borrowid:<input type="text" id="borrowid"/>
-	<input type="text" id="borrowid-info"/></label>
-	pid:<input type="text" id="pid"/><br>
+	borrowid:<input type="text" id="borrowid"/><br/>
+	<input type="text" id="borrowid-info" style="width:250px"/><br/>
+	pid:<input type="text" id="pid" /><br>
 	uid:<input type="text" id="uid"/><br>
 	borrowid_sec:<input type="text" id="borrowid_sec"/><br>
 	status:<input type="text" id="status"/><br>
@@ -69,7 +69,6 @@ function one(){
             data:{"borrowid":borrowid},//这行不能省略，如果没有数据向后台提交也要写成data:{}的形式
             dataType:"json",//这里要注意如果后台返回的数据不是json格式，那么就会进入到error:function(data){}中
             success:function(data){
-                $("#borrowid-info").css("display","block");
                 $("#borrowid-info").val(data.info);
             },
             error:function(data){
