@@ -28,21 +28,17 @@
 	status:<input type="text" id="status"/><br>
 	nextPage:<input type="text" id="nextPage"/><br>
 </form>
+<form >
 	<input type="button" value="AES加密" onclick="javascrtpt:one()"/><br>
+	daily:<input type="checkbox" id="daily" onclick="check()">
+	online:<input type="checkbox" id="online" onclick="check()">
+</form>
 <form id="daliy">
-	日常环境：
 	<input type="button" value="提现结果" onclick="javascrtpt:test('1')"/>
 	<input type="button" value="绑卡结果" onclick="javascrtpt:test('2')"/>
 	<input type="button" value="签约结果" onclick="javascrtpt:test('3')"/>
 	<input type="button" value="还款结果" onclick="javascrtpt:test('4')"/>
 	<input type="button" value="数据认证" onclick="javascrtpt:test('5')"/>
-</form><form id="online">
-	线上环境：
-	<input type="button" value="提现结果" onclick="javascrtpt:test('11')"/>
-	<input type="button" value="绑卡结果" onclick="javascrtpt:test('12')"/>
-	<input type="button" value="签约结果" onclick="javascrtpt:test('13')"/>
-	<input type="button" value="还款结果" onclick="javascrtpt:test('14')"/>
-	<input type="button" value="数据认证" onclick="javascrtpt:test('15')"/>
 </form>
 
 <script LANGUAGE="JavaScript">
@@ -52,15 +48,13 @@
 	var status = document.getElementById('status').value;
     var nextPage = document.getElementById('nextPage').value;
 	var timestamp = (new Date()).getTime();
+	var daily='https://d1.shurongdai.cn';
+	var online='https://mrongshu.shurongdai.cn';
 	var url1='https://www.baidu.com';
-    var url2='https://d1.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&GRAY';
-    var url3='https://d1.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url4='https://d1.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url5='https://d1.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&GRAY';
-    var url12='https://mrongshu.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&GRAY';
-    var url13='https://mrongshu.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url14='https://mrongshu.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url15='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&GRAY';
+    var url2='/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&GRAY';
+    var url3='/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
+    var url4='/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
+    var url5='/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&GRAY';
 function test(a){
 
     if(a=='1')
@@ -73,16 +67,6 @@ function test(a){
 		{window.location.href=url4;}
     if(a=='5')
 		{window.location.href=url5;}
-	if(a=='11')
-		{window.location.href=url1;}
-	if(a=='12')
-		{window.location.href=url12;}
-	if(a=='13')
-		{window.location.href=url13;}
-	if(a=='14')
-		{window.location.href=url14;}
-	if(a=='15')
-		{window.location.href=url15;}
     }
 
 function one(){
@@ -105,7 +89,22 @@ function one(){
         return false;
     }
 }
-
+function check() {
+	var dailybox=document.getElementById("daily");
+	var onlinebox=document.getElementById("online");
+	if (dailybox.checked==true){
+	    url2=daily+url2;
+	    url3=daily+url3;
+	    url4=daily+url4;
+	    url5=daily+url5;
+	}
+	if (onlinebox.checked==true){
+        url2=online+url2;
+        url3=online+url3;
+        url4=online+url4;
+        url5=online+url5;
+	}
+}
 
 
 
