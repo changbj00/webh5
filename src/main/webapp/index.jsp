@@ -22,42 +22,45 @@
 <br>
 <form id="myForm">
 	borrowid:<input type="text" id="borrowid"/><br/>
-	<input type="text" id="borrowid-info" style="width:250px"/><br/>
 	pid:<input type="text" id="pid" /><br>
 	uid:<input type="text" id="uid"/><br>
 	borrowid_sec:<input type="text" id="borrowid_sec"/><br>
 	status:<input type="text" id="status"/><br>
 	nextPage:<input type="text" id="nextPage"/><br>
 </form>
+<form id="daliy">
 	<input type="button" value="AES加密" onclick="javascrtpt:one()"/>
 	<input type="button" value="提现结果" onclick="javascrtpt:test('1')"/>
 	<input type="button" value="绑卡结果" onclick="javascrtpt:test('2')"/>
 	<input type="button" value="签约结果" onclick="javascrtpt:test('3')"/>
 	<input type="button" value="还款结果" onclick="javascrtpt:test('4')"/>
 	<input type="button" value="数据认证" onclick="javascrtpt:test('5')"/>
+</form>
+
 <script LANGUAGE="JavaScript">
-function test(a){
 	var pid = document.getElementById('pid').value;
 	var borrowid_sec = document.getElementById('borrowid_sec').value;
 	var uid = document.getElementById('uid').value;
 	var status = document.getElementById('status').value;
     var nextPage = document.getElementById('nextPage').value;
 	var timestamp = (new Date()).getTime();
-	var url1='https://www.baidu.com';
-    var url2='https://d1.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&GRAY';
-    var url3='https://d1.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url4='https://d1.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url5='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&GRAY';
+function test(a){
+	var url11='https://www.baidu.com';
+    var url12='https://mrongshu.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&GRAY';
+    var url13='https://mrongshu.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
+    var url14='https://d1.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
+    var url15='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&GRAY';
+
     if(a=='1')
-    	{window.location.href=url1;}
+    	{window.location.href=url11;}
     if(a=='2')
-    	{window.location.href=url2;}
+    	{window.location.href=url12;}
     if(a=='3')
-		{window.location.href=url3;}
+		{window.location.href=url13;}
     if(a=='4')
-		{window.location.href=url4;}
+		{window.location.href=url14;}
     if(a=='5')
-		{window.location.href=url5;}
+		{window.location.href=url15;}
     }
 
 function one(){
@@ -69,7 +72,7 @@ function one(){
             data:{"borrowid":borrowid},//这行不能省略，如果没有数据向后台提交也要写成data:{}的形式
             dataType:"json",//这里要注意如果后台返回的数据不是json格式，那么就会进入到error:function(data){}中
             success:function(data){
-                $("#borrowid-info").val(data.info);
+                $("#borrowid_sec").val(data.info);
             },
             error:function(data){
                 alert("borrowid提交出现了错误！");
