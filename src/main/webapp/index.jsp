@@ -22,7 +22,6 @@
 <br>
 <form id="myForm">
 	borrowid:<input type="text" id="borrowid"/><br/>
-	<input type="text" id="borrowid-info" style="width:250px"/><br/>
 	pid:<input type="text" id="pid" /><br>
 	uid:<input type="text" id="uid"/><br>
 	borrowid_sec:<input type="text" id="borrowid_sec"/><br>
@@ -44,10 +43,10 @@ function test(a){
     var nextPage = document.getElementById('nextPage').value;
 	var timestamp = (new Date()).getTime();
 	var url1='https://www.baidu.com';
-    var url2='https://d1.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&GRAY';
-    var url3='https://d1.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url4='https://d1.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&wallet=0&GRAY';
-    var url5='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&uid='+uid+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&GRAY';
+    var url2='https://mrongshu.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&uid='+uid+'&GRAY';
+    var url3='https://mrongshu.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&wallet=0&uid='+uid+'&GRAY';
+    var url4='https://mrongshu.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&wallet=0&uid='+uid+'&GRAY';
+    var url5='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&uid='+uid+'&GRAY';
     if(a=='1')
     	{window.location.href=url1;}
     if(a=='2')
@@ -69,7 +68,7 @@ function one(){
             data:{"borrowid":borrowid},//这行不能省略，如果没有数据向后台提交也要写成data:{}的形式
             dataType:"json",//这里要注意如果后台返回的数据不是json格式，那么就会进入到error:function(data){}中
             success:function(data){
-                $("#borrowid-info").val(data.info);
+                $("#borrowid_sec").val(data.info);
             },
             error:function(data){
                 alert("borrowid提交出现了错误！");
