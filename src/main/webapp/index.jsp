@@ -43,10 +43,10 @@ function test(a){
     var nextPage = document.getElementById('nextPage').value;
 	var timestamp = (new Date()).getTime();
 	var url1='https://www.baidu.com';
-    var url2='https://mrongshu.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&uid='+uid+'&GRAY';
-    var url3='https://mrongshu.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&wallet=0&uid='+uid+'&GRAY';
-    var url4='https://mrongshu.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&wallet=0&uid='+uid+'&GRAY';
-    var url5='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowid_sec='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&uid='+uid+'&GRAY';
+    var url2='https://mrongshu.shurongdai.cn/rongshu/src/p/bindCardBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&cardType=1&bankCardId=-1&wallet=0&uid='+uid+'&GRAY';
+    var url3='https://mrongshu.shurongdai.cn/rongshu/src/p/contractBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&wallet=0&uid='+uid+'&GRAY';
+    var url4='https://mrongshu.shurongdai.cn/rongshu/src/p/repaytext/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&wallet=0&uid='+uid+'&GRAY';
+    var url5='https://mrongshu.shurongdai.cn/rongshu/src/p/operatorBack/index.html?pid='+pid+'&borrowId='+borrowid_sec+'&timestamp='+timestamp+'&status='+status+'&nextPage='+nextPage+'&isDataAuth=1&wallet=0&uid='+uid+'&GRAY';
     if(a=='1')
     	{window.location.href=url1;}
     if(a=='2')
